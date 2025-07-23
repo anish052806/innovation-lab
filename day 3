@@ -1,0 +1,46 @@
+//function scope
+let a=10;
+function say(){
+    let name="javascript"
+    console.log("hai global scope");
+     console.log("within the func"+name);
+
+}
+say()
+
+
+//blockscope
+function voting(age){
+    if(age>=18){
+        let iscloudy=true;
+        var israining=true;
+        console.log("eligible");
+        console.log (iscloudy);
+    }
+    console.log(israining);
+   // console.log(iscloudy)//throw err
+}
+voting(18)
+//localscope
+//localscope (same as function or block scope depending on text)
+ //callback funcion   
+
+ function text(){
+    console.log("message");
+ }
+ text();
+ function send(callback){
+    console.log("message sender");
+    setTimeout(callback,2000);
+ }
+ send(text);
+
+   let count =0;
+   let interval=()=>{
+    count++;
+    console.log(count);
+     if(count<5){
+        interval();
+}
+    }
+ 
