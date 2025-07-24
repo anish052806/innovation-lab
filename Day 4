@@ -1,0 +1,48 @@
+   array
+   let number=[1,2,"three",true];
+   let names= new Array("john","james");
+   console.log(number[2]);
+   filter()-it filtered the resulr arguments
+   let result  =number.filter(number=> number[1]);
+   console.log(result);
+   slice -delete the element based on index value
+   let number=[1,2,3,4,5]
+   number.splice(1,2,"hii");
+   console.log(number)
+   //object
+   let obj={
+       name:"js"
+       total mark:"100"
+       //nested obj
+       subject:{
+        english:"87";
+        java:"80";
+
+       }
+       avg function(){
+        let sum= this.subject.english + this.subject.java;
+        return sum;
+
+       }
+    
+   }
+   console.log(detail.totalmark)
+   console.log(details[:name]);
+   console.log(detail.subject.english);
+   console.log(detail.subject["java"]);
+   console.log(detail.avg());
+    const person={
+        name:"asha",
+        age:21,
+        city:chennai,
+
+    };
+    const{name,age,city}=person;
+
+    console.log(name);
+    console.log(age);
+    console.log(city);
+    //arraydestructuring
+    const person=["john",22,:"softwaredeveloper"];
+    const [name,age,designation]=person;
+    console.log(name+" "+age+ designation);
