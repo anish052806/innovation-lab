@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form id="registrationform" onsubmit="return validateForm()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <div id="nameError" class="error"></div>
+    <br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <div id="emailError" class="error"></div>
+    <br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <div id="passwordError" class="error"></div>
+    <br><br>
+    <label for="phone">Mobile Number</label>
+        <input type="text" name="phone" id="phone">
+        <div class="error" id="phoneError"></div>
+        <br><br>
+        <button type="submit">submit</button>
+    </form>
+    <script>
+function validateName(name){
+    const regex = /^[A-Za-z\s]+$/;
+    if (name.trim() === ""){
+        return "name cannot be empty";
+    }
+    if(!regex.test(name)){
+        return "Name can only contain letters and spaces";
+
+    }
+    return "name is valid";
+}
+function validateEmail(email){
+    const regex = /^[a-zA-Z0-9.%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/;
+    if(email.trim() === ""){
+        return "email cannot be empty";
+    }
+    if(!regex.test(email)){
+        return "email is valid";
+    }
+}
+function validatePassword(password){
+    const regex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+
+if(password.trim() === ""){
+  return "Password cannot be empty";
+}
+if(!regex.test(password)){
+    return "password must be at least 8 character long,contain an uppercase letter,and a number";
+}
+return "password is valid";
+}
+function validatephone(phone){
+            const regex=/^[0-9]{10}$/
+            if(phone.trim()===""){
+                return "text area can't br empty"
+            }
+            if(!regex.test(phone)){
+                return "mobile must contain 10 degits"
+            }
+            return "mobile num is valid"
+        }
+
+function validateForm(){
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const phone = document.getElementById("phone").value;
+
+    const nameError = validateName(name);
+    const emailError = validateEmail(email);
+    const passwordError = validatePassword(password);
+    const phoneError = validatephone(phone);
+
+    if (nameError ==="name is valid" && emailError ==="email is valid" && passwordError ==="password is valid" && phoneError ==="mobile num is valid"){
+        return true;
+    }
+
+ document.getElementById("nameError").innerText = nameError ==="name is valid" ? "": nameError;
+ document.getElementById("emailError").innerText = emailError ==="email is valid" ? "":emailError;
+ document.getElementById("passwordError").innerText = passwordError ==="password is valid" ? "":passwordError;
+ document.getElementById("phoneError").innerText = phoneError ==="mobile num is valid" ? "":phoneError;
+ return false;
+
+
+
+
+
+}
+
+
+
+
+
+
+    </script>
+</body>
+</html>
