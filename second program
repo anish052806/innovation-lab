@@ -1,0 +1,31 @@
+import{usestate} from "react";
+
+function App(){
+  const [tasks,setTask]=usestate([])
+  const[text,setText]=usestate("")
+  const addtask=()=>{
+    if(text ==="")return;
+    setTask(task,{name:text,completed:false})
+    setText("")
+
+  }
+  return(
+    <>
+    <h1>to-do-list</h1>
+    <input
+    value={text}
+    onChange={(e)=>setText(e.target.value)}
+    placeholder="Enter Task"
+/>
+<button onclick={addtask}>Add</button>
+<ul>
+  <li>
+    {tasks.name}
+  </li>
+</ul>
+    </>
+
+  )
+
+}
+export default App;
